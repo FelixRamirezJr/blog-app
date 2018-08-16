@@ -7,5 +7,64 @@
 
 
 <script>
-  InlineEditor.create( document.querySelector( '#editor' ) ).catch( error => {console.error( error );} );
+InlineEditor
+	.create( document.querySelector( '#editor' ), {
+		image: {
+			// You need to configure the image toolbar too, so it uses the new style buttons.
+			toolbar: [ 'imageTextAlternative', '|', 'imageStyleAlignLeft', 'imageStyleFull', 'imageStyleAlignRight' ],
+
+			styles: [
+				// This option is equal to a situation where no style is applied.
+				'imageStyleFull',
+
+				// This represents an image aligned to left.
+				'imageStyleAlignLeft',
+
+				// This represents an image aligned to right.
+				'imageStyleAlignRight'
+			]
+		}
+	} )
+	.catch( error => {
+		console.error( error );
+	} );
+  // InlineEditor
+  //   .create( document.querySelector( '#editor' ), {
+  //     ckfinder: {
+  //         uploadUrl: '/upload_img'
+  //     }
+  //   } )
+  //   .then( editor => {
+  //       window.editor = editor;
+  //
+  //       displayStatus( editor );
+  //   } )
+  //   .catch( err => {
+  //       console.error( err.stack );
+  //   } );
+  //InlineEditor.create( document.querySelector( '#editor' ) ).catch( error => {console.error( error );} );
+
+  function saveData( data ) {
+      return new Promise( resolve => {
+          setTimeout( () => {
+              console.log( 'Saved', data );
+
+              resolve();
+          }, HTTP_SERVER_LAG );
+      } );
+  }
+
+  // Update the "Status: Saving..." info.
+  function displayStatus( editor ) {
+      const pendingActions = editor.plugins.get( 'PendingActions' );
+      const statusIndicator = document.querySelector( '#editor-status' );
+
+      pendingActions.on( 'change:hasAny', ( evt, propertyName, newValue ) => {
+          if ( newValue ) {
+              statusIndicator.classList.add( 'busy' );
+          } else {
+              statusIndicator.classList.remove( 'busy' );
+          }
+      } );
+  }
 </script>

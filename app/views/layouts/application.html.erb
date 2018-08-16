@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BensBlog</title>
+    <title>Black and Purple</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header> <%= render partial: 'layouts/navbar' %> </header>
   <body>
-    <%= yield %>
+    <div class="contianer">
+      <%= yield %>
+    </div>
   </body>
 </html>

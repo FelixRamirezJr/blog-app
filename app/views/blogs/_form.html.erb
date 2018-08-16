@@ -1,0 +1,15 @@
+<div class="row">
+  <%= form_for @blog do |f| %>
+    <div class="col-12">
+      <%= f.text_field :slug %>
+    </div>
+
+    <div class="col-12">
+      <%= f.text_area :body %>
+    </div>
+
+    <div class="col-12">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</div>

@@ -1,4 +1,11 @@
-<div class="row">
-  <h1> Edit Blog </h1>
-  <%= render 'blogs/form' %>
-</div>
+<%= form_for @blog do |f| %>
+  <%= f.text_field :slug, class: "form-control" %>
+<% end %>
+<hr>
+<div id="editor"> </div>
+
+
+
+<script>
+  InlineEditor.create( document.querySelector( '#editor' ) ).catch( error => {console.error( error );} );
+</script>

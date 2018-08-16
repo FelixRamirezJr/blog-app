@@ -1,15 +1,11 @@
-<div class="row">
-  <%= form_for @blog do |f| %>
-    <div class="col-12">
-      <%= f.text_field :slug %>
-    </div>
+<%= form_for @blog do |f| %>
+  <div class="col-12">
+    <%= f.text_field :slug, placeholder: "Web url page (my photos, cars ...)", class: "form-control" %>
+  </div>
 
-    <div class="col-12">
-      <%= f.text_area :body %>
-    </div>
 
-    <div class="col-12">
-      <%= f.submit "Submit" %>
-    </div>
-  <% end %>
-</div>
+  <div class="col-12">
+    <br>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

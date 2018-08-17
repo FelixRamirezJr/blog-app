@@ -9,6 +9,12 @@ class BlogsController < ApplicationController
     @blog = Blog.find(params[:id])
   end
 
+  def destroy
+    @blog = Blog.find(params[:id])
+    @blog.destroy
+    redirect_to request.referrer
+  end
+
   def index
     if params[:search] && !params[:search].blank?
       if Rails.env.production?

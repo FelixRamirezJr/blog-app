@@ -1,5 +1,8 @@
 <% if current_user %>
-  <%= Blog.deparametrize(blog.slug) %> | <%= link_to "Edit", edit_blog_path(blog) %> | <%= link_to "Page", blog_path(blog.slug.parameterize) %>
+  <%= Blog.deparametrize(blog.slug) %> |
+  <%= link_to "Edit", edit_blog_path(blog) %> |
+  <%= link_to "Page", blog_path(blog.slug.parameterize) %> |
+  <%= link_to 'Delete', blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' } %> 
 <% end %>
 <br>
 <%= raw blog.body %>

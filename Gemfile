@@ -24,6 +24,9 @@ gem 'devise'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 gem 'will_paginate', '~> 3.1.0'
+gem 'ckeditor_rails'
+gem 'carrierwave', '~> 1.0'
+gem 'pg_search'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'

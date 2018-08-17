@@ -1,12 +1,25 @@
 <%= form_for @blog do |f| %>
-  <%= f.text_field :slug, class: "form-control" %>
-<% end %>
-<hr>
-<div id="editor"> </div>
+  <div class="col-sm-12">
+    <input class="form-control" value="<%= Blog.deparametrize(@blog.slug) %>" name="blog[slug]"> </input>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+  <hr>
 
+  <div class="col-sm-12">
+    <%= f.text_area :body, id: "ckeditor" %>
+  </div>
+<% end %>
 
 
 <script>
+  $('#ckeditor').ckeditor({
+  // optional config
+  });
+</script>
+
+
+
+<!-- <script>
 InlineEditor
 	.create( document.querySelector( '#editor' ), {
 		image: {
@@ -67,4 +80,4 @@ InlineEditor
           }
       } );
   }
-</script>
+</script> -->

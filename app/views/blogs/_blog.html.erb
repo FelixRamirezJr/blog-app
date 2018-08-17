@@ -1,2 +1,6 @@
+<% if current_user %>
+  <%= Blog.deparametrize(blog.slug) %> | <%= link_to "Edit", edit_blog_path(blog) %> | <%= link_to "Page", blog_path(blog.slug.parameterize) %>
+<% end %>
+<br>
 <%= raw blog.body %>
 <hr>

@@ -16,5 +16,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require ckeditor
+//= require ckeditor-jquery
 //= require_tree .

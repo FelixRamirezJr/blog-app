@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.where('slug = ? OR id = ?', params[:id], params[:id]).first
+    @blog = Blog.find_by_slug(params[:id])
   end
 
   def update

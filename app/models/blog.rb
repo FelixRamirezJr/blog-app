@@ -3,7 +3,7 @@ class Blog < ApplicationRecord
 
   if Rails.env.production?
     include PgSearch
-    pg_search_scope :search_by_slug_and_body, :against => :slug, :body
+    pg_search_scope :search_by_slug_and_body, :against => [:slug, :body]
   end
 
   def urlify_slug
